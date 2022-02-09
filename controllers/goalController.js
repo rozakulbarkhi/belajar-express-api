@@ -3,7 +3,16 @@ exports.getGoals = (req, res) => {
 };
 
 exports.setGoal = (req, res) => {
-  res.send("set goal");
+  const { text } = req.body;
+
+  if (!req.body.text) {
+    res.status(400).json({ message: "Please input the text" });
+  }
+
+  res.json({
+    message: "Set goal was successfully",
+    text,
+  });
 };
 
 exports.updateGoal = (req, res) => {

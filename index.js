@@ -1,10 +1,15 @@
 const express = require("express");
 
+// init app
+const app = express();
+
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // dotenv
 require("dotenv").config();
 const PORT = process.env.PORT || 6000;
-
-const app = express();
 
 // routes
 app.use("/api/goals", require("./routes/goalRoute"));
