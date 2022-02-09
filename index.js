@@ -1,5 +1,6 @@
 const express = require("express");
 const colors = require("colors");
+const dotenv = require("dotenv");
 const connection = require("./config/db");
 
 connection();
@@ -12,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // dotenv
-require("dotenv").config();
+dotenv.config();
 const PORT = process.env.PORT || 6000;
 
 // routes
