@@ -1,8 +1,10 @@
-exports.getGoals = (req, res) => {
-  res.send("get all goals");
-};
+const asyncHandler = require("express-async-handler");
 
-exports.setGoal = (req, res) => {
+exports.getGoals = asyncHandler(async (req, res) => {
+  res.send("get all goals");
+});
+
+exports.setGoal = asyncHandler(async (req, res) => {
   const { text } = req.body;
 
   if (!req.body.text) {
@@ -13,12 +15,12 @@ exports.setGoal = (req, res) => {
     message: "Set goal was successfully",
     text,
   });
-};
+});
 
-exports.updateGoal = (req, res) => {
+exports.updateGoal = asyncHandler(async (req, res) => {
   res.send(`update goal ${req.params.id}`);
-};
+});
 
-exports.deleteGoal = (req, res) => {
+exports.deleteGoal = asyncHandler(async (req, res) => {
   res.send(`delete goal ${req.params.id}`);
-};
+});
