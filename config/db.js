@@ -8,7 +8,7 @@ const connectDB = async () => {
 
     console.log(`Connect to MongoDB ${conn.connection.host.cyan.underline}`);
   } catch (error) {
-    console.log(`Not Connect`);
+    console.log(`Not Connect!`);
     process.exit(1);
   }
 };
